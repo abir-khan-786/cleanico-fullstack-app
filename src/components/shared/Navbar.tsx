@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Menu, X, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, CheckCircle, LogIn } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,9 @@ export default function Navbar() {
                     <button className="hidden sm:block bg-[#0A1D37] text-white px-6 py-2.5 rounded font-bold hover:bg-slate-800 transition shadow-md">
                         Contact
                     </button>
+                    <Link href={"/login"} className="hidden sm:block bg-[#0A1D37] text-white px-6 py-2.5 rounded font-bold hover:bg-slate-800 transition shadow-md">
+                        <LogIn size={20} />
+                    </Link>
                     {/* Hamburger Button */}
                     <button
                         className="md:hidden p-2 text-slate-800 hover:bg-slate-100 rounded-md transition"

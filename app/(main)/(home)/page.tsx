@@ -1,3 +1,4 @@
+import ContactForm from '@/src/components/Home/ContactForm';
 import Features from '@/src/components/Home/Features';
 import Hero from '@/src/components/Home/Hero';
 import Pricing from '@/src/components/Home/Pricing';
@@ -14,6 +15,7 @@ const HomePage = () => {
             <Pricing />
             <Reviews />
             <Features />
+            <ContactForm />
             <Stats />
         </div>
     );
