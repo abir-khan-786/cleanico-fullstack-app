@@ -42,6 +42,7 @@ export default function RegisterPage() {
             provider: "google",
             callbackURL: "/dashboard",
         });
+        toast.success(' Welcome to Cleanico.'); // সাকসেস মেসেজ
     };
 
     return (
