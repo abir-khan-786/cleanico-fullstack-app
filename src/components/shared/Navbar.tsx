@@ -1,11 +1,16 @@
 "use client";
 
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Menu, X, CheckCircle, LogIn } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, CheckCircle, LogIn, User } from 'lucide-react';
 import Link from 'next/link';
+import { authClient } from '@/src/lib/auth-client';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const { data: session, isPending } = authClient.useSession();
+
+    if (isPending) return <p>Loading...........</p>
 
     return (
         <header className="w-full relative z-[100]">
@@ -43,8 +48,9 @@ export default function Navbar() {
                     <button className="hidden sm:block bg-[#0A1D37] text-white px-6 py-2.5 rounded font-bold hover:bg-slate-800 transition shadow-md">
                         Contact
                     </button>
-                    <Link href={"/login"} className="hidden sm:block bg-[#0A1D37] text-white px-6 py-2.5 rounded font-bold hover:bg-slate-800 transition shadow-md">
-                        <LogIn size={20} />
+
+                    <Link href={"/profile"} className="hidden sm:block bg-[#0A1D37] text-white px-6 py-2.5 rounded font-bold hover:bg-slate-800 transition shadow-md">
+                        <User size={20} /> {session?.user.name}
                     </Link>
                     {/* Hamburger Button */}
                     <button
